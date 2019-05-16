@@ -1,8 +1,10 @@
 package guiApplication;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
@@ -12,6 +14,7 @@ public class Application extends JFrame{
     private JButton logInButton;
     private JButton exitButton;
     private JLabel timeLabel;
+
 
 
     public Application() {
@@ -24,7 +27,12 @@ public class Application extends JFrame{
         logInButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                close();
+                try{
+                    Thread.sleep(500);
+                }catch (InterruptedException ex){
+                    JOptionPane.showMessageDialog(null,ex);
+                }
                 LogIN log = new LogIN();
                 log.setVisible(true);
                 log.setSize(500,400);
@@ -35,7 +43,13 @@ public class Application extends JFrame{
         clock();
 
     }
-    public void clock(){
+
+    private void close(){
+        WindowEvent windowEvent = new WindowEvent(this,WindowEvent.WINDOW_CLOSING);
+        Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(windowEvent);
+    }
+
+    private void clock(){
         Thread clock = new Thread(){
             public void run(){
                 try {
@@ -58,15 +72,13 @@ public class Application extends JFrame{
             }
         };
         clock.start();
-
-
-
     }
+
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("Application");
         frame.setContentPane(new Application().applicationPanel);
-        frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);

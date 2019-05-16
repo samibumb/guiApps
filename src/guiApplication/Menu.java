@@ -18,7 +18,7 @@ public class Menu extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 TableCars cars = new TableCars();
                 cars.setVisible(true);
-                cars.setSize(1100,800);
+                cars.setSize(1100,900);
                 cars.setLocationRelativeTo(null);
             }
         });
@@ -27,7 +27,7 @@ public class Menu extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 CarToAdd car = new CarToAdd();
                 car.setVisible(true);
-                car.setSize(1100,800);
+                car.setSize(1100,900);
                 car.setLocationRelativeTo(null);
             }
         });

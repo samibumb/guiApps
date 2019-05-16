@@ -11,7 +11,7 @@ public class LogIN extends JFrame{
     private JTextField usernameTextField;
     private JPasswordField passwordTextField;
     private JButton cancelButton;
-    private JButton enterButton;
+     JButton enterButton;
     private JLabel emptyUserName;
     private JLabel emptyPassword;
     private JButton tryAgainButton;
@@ -33,12 +33,12 @@ public class LogIN extends JFrame{
                     emptyPassword.setVisible(true);
                 }else if (usernameTextField.getText().equals("samibumb") && passwordTextField.getText().equals("sami")){
                     JOptionPane.showMessageDialog(null,"Welcome Sami!","",JOptionPane.PLAIN_MESSAGE);
+
                     Menu menu = new Menu();
                     menu.setVisible(true);
                     menu.setSize(1100,800);
                     menu.setLocationRelativeTo(null);
                     menu.setResizable(false);
-
                 }else{
                     JOptionPane.showMessageDialog(null,"Invalid username or password","",JOptionPane.ERROR_MESSAGE);
                 }
@@ -62,16 +62,21 @@ public class LogIN extends JFrame{
         });
 
         add(loginPanel);
+
+
     }
 
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("LogIN");
         frame.setContentPane(new LogIN().loginPanel);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
         frame.setSize(500,400);
+
     }
+
+
 }

@@ -11,6 +11,7 @@ public class TableCars extends JFrame{
     JTable carTable;
     private JButton exitButton;
     private JLabel label;
+    private JButton backButton;
 
     public TableCars() {
 
@@ -22,6 +23,15 @@ public class TableCars extends JFrame{
         });
 
         add(tablePanel);
+        backButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Menu menu = new Menu();
+                menu.setVisible(true);
+                menu.setSize(1100,800);
+                menu.setLocationRelativeTo(null);
+            }
+        });
     }
 
     public static void main(String[] args) {
@@ -30,6 +40,7 @@ public class TableCars extends JFrame{
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
+        frame.setSize(1100,900);
     }
 
     private void createUIComponents() {
