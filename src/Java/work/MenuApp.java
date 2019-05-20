@@ -28,6 +28,9 @@ public class MenuApp {
 
         }
 
+        Cat cat=Cat.getInstance();
+        System.out.println(cat);
+
     }
 
     public static void showMenu(){
